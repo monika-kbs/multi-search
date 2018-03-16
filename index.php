@@ -62,10 +62,11 @@ foreach ($users as $key => $user) {
     <!-- search form starts -->
     <div class="row">
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <button id ="add" name="add" class="btn btn-primary" >Add</button>
       </div>
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <form action="" method="GET" class="form-inline" role="form" id="filter_search">
         <div class="filter">
-      <form action="" method="GET" class="form-inline" role="form">
     
       <div class="form-group">
          <select class="form-control" name="filter_type" id="filter_type">
@@ -91,8 +92,8 @@ foreach ($users as $key => $user) {
       
     
       <button type="submit" class="btn btn-primary">Search</button>
-    </form>
     </div>
+    <!-- </form> -->
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
       </div>
@@ -151,7 +152,13 @@ $(document).ready( function () {
     'copy', 'csv', 'excel', 'pdf', 'print'
     ]
   });
+  $("#add").click(function(){
+    $("#filter_search").append('<div class="filter"><div class="form-group"><select class="form-control" name="filter_type" id="filter_type"><option value="skills" selected>skill</option></select></div><div class="form-group"><select class="form-control" name="operator" id="filter_type"><option value="containes">Contains</option><option value="not_contains">Doesnt Contains</option></select></div><div class="form-group"><input type="text" name="test" ></div></div></form>');
+  });
 });
+
+
+
 </script>
 </body>
 </html>
